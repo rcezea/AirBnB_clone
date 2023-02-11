@@ -15,8 +15,8 @@ from models.state import State
 class HBNBCommand(cmd.Cmd):
 
     class_list = dict()
-    class_list = {'BaseModel': BaseModel, 'User': User, 'City': City, 
-    'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
+    class_list = {'BaseModel': BaseModel, 'User': User, 'City': City,
+        'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
 
     prompt = "(hbnb) "
 
@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     do_quit = do_EOF
 
     def help_quit(self):
-        print ("Quit command to exit the program")
+        print("Quit command to exit the program")
     help_EOF = help_quit
 
     '''Updating command interpreter to have these commands
@@ -118,10 +118,10 @@ class HBNBCommand(cmd.Cmd):
             print("** value is missing **")
         elif len(texts) >= 4:
             if len(texts) > 4:
-               for i in texts:
-                  if len(texts) > 4:
-                     texts.remove(texts[len(texts) - 1])
-            if texts[0] in self.class_list:   
+                for i in texts:
+                    if len(texts) > 4:
+                        texts.remove(texts[len(texts) - 1])
+            if texts[0] in self.class_list:
                 id = ".".join(texts[:2])
                 if id in storage.all():
                     obj = storage.all()[id]
@@ -130,8 +130,8 @@ class HBNBCommand(cmd.Cmd):
                         #v_type is type of the attribute that will be updated
                         v_type = type(obj.__class__.__dict__[texts[2]])
                         print("value type = {}".format(v_type))
-                        #above we look into the dictionary of the object's class 
-                        #with texts[2] as the key and return the type
+                        #above we look into the dictionary of the object's
+                        #class with texts[2] as the key and return the type
                         setattr(obj, texts[2], v_type(texts[3]))
                     else:
                     '''
@@ -141,6 +141,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
         storage.save()
-    
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+
