@@ -15,8 +15,10 @@ from models.state import State
 class HBNBCommand(cmd.Cmd):
 
     class_list = dict()
-    class_list = {'BaseModel': BaseModel, 'User': User, 'City': City,
-                    'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
+    class_list = {'BaseModel': BaseModel, 'User': User,
+                  'City': City,
+                  'Amenity': Amenity, 'Place': Place,
+                  'State': State, 'Review': Review}
 
     prompt = "(hbnb) "
 
