@@ -1,7 +1,6 @@
 
 """contains the entry point of the command interpreter
 """
-import sys
 import cmd
 from models.base_model import BaseModel
 from models.user import User
@@ -12,17 +11,19 @@ from models.review import Review
 from models.amenity import Amenity
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
 
     class_list = dict()
-    class_list = {'BaseModel': BaseModel, 'User': User, 'City': City, 'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review }
-    
+    class_list = {'BaseModel': BaseModel, 'User': User, 'City': City, 
+    'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
+
     prompt = "(hbnb) "
 
     def do_EOF(self, line):
         return True
     do_quit = do_EOF
-    
+
     def help_quit(self):
         print ("Quit command to exit the program")
     help_EOF = help_quit
@@ -42,6 +43,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         else:
             print("** class name missing **")
+
     def help_create(self):
         pass
 
@@ -50,40 +52,39 @@ class HBNBCommand(cmd.Cmd):
         if len(texts) == 0:
             print("** class name missing **")
             return
-        elif len(texts) >= 1: 
+        elif len(texts) >= 1:
             if texts[0] in self.class_list:
-                if texts == 1 :
+                if texts == 1:
                     print("** instance id missing **")
                 else:
                     id = ".".join(texts[:2])
                     try:
                         display = storage.all()[id]
                         print(display)
-                    except:
+                    except Exception:
                         print("** no instance found **")
             else:
                 print("** class doesn't exist **")
-    
 
     def do_destroy(self, line):
         texts = line.split()
         if len(texts) == 0:
             print("** class name missing **")
             return
-        elif len(texts) >= 1: 
+        elif len(texts) >= 1:
             if texts[0] in self.class_list:
-                if texts == 1 :
+                if texts == 1:
                     print("** instance id missing **")
                 else:
                     id = ".".join(texts[:2])
                     try:
                         del storage.all()[id]
                         storage.save()
-                    except:
+                    except Exception:
                         print("** no instance found **")
             else:
                 print("** class doesn't exist **")
-        
+
     def help_destroy(self):
         print("Destroys an instance")
 
@@ -106,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
             if texts[0] not in self.class_list:
                 print("** class doesn't exist **")
             else:
-                print ("** instance id missing **")
+                print("** instance id missing **")
         elif len(texts) == 2:
             id = ".".join(texts[:2])
             if id not in storage.all():
@@ -116,12 +117,10 @@ class HBNBCommand(cmd.Cmd):
         elif len(texts) == 3:
             print("** value is missing **")
         elif len(texts) >= 4:
-
-            #if len(texts) > 4:
-             #   for i in texts:
-              #      if len(texts) > 4:
-               #         texts.remove(texts[len(texts) - 1])
-
+            if len(texts) > 4:
+               for i in texts:
+                  if len(texts) > 4:
+                     texts.remove(texts[len(texts) - 1])
             if texts[0] in self.class_list:   
                 id = ".".join(texts[:2])
                 if id in storage.all():
@@ -131,21 +130,17 @@ class HBNBCommand(cmd.Cmd):
                         #v_type is type of the attribute that will be updated
                         v_type = type(obj.__class__.__dict__[texts[2]])
                         print("value type = {}".format(v_type))
-                        #above we look into the dictionary of the object's class with texts[2] as the key and return the type
+                        #above we look into the dictionary of the object's class 
+                        #with texts[2] as the key and return the type
                         setattr(obj, texts[2], v_type(texts[3]))
                     else:
                     '''
                     setattr(obj, texts[2], texts[3])
-                    
                 else:
                     print("** no instance found **")
             else:
                 print("** class doesn't exist **")
         storage.save()
-                
+    
 if __name__ == '__main__':
-    '''
-    if sys.argv:
-        HBNBCommand.do_create('self',sys.argv[0])
-    '''
     HBNBCommand().cmdloop()
