@@ -16,7 +16,7 @@ class HBNBCommand(cmd.Cmd):
 
     class_list = dict()
     class_list = {'BaseModel': BaseModel, 'User': User, 'City': City,
-        'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
+                    'Amenity': Amenity, 'Place': Place, 'State': State, 'Review': Review}
 
     prompt = "(hbnb) "
 
@@ -142,6 +142,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         storage.save()
 
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
 
+if __name__ == '__main__':
+
+    HBNBCommand().cmdloop()
