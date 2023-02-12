@@ -23,12 +23,17 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_EOF(self, line):
+        print()
         return True
-    do_quit = do_EOF
+
+    def do_quit(self, line):
+        return True
 
     def help_quit(self):
-        print("Quit command to exit the program\n")
-    help_EOF = help_quit
+        print("Quit command to exit the program")
+
+    def help_EOF(self, line):
+        pass
 
     '''Updating command interpreter to have these commands
     create, show, destroy, all, update
