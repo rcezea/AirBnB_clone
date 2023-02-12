@@ -85,7 +85,6 @@ class TestStorageMethods(unittest.TestCase):
         dummy_place = Place()
         dummy_review = Review()
         dummy_amenity = Amenity()
-    
 
         # Checks that the objects created above are stored already
         self.assertIn("BaseModel." + dummy_bm.id,
@@ -95,8 +94,7 @@ class TestStorageMethods(unittest.TestCase):
         self.assertIn(dummy_user, models.storage.all().values())
         self.assertIn("State." + dummy_state.id, models.storage.all().keys())
         self.assertIn(dummy_state, models.storage.all().values())
-        #self.assertIn("Place." + dummy_place.city_id, models.storage.all().keys())
-        #self.assertIn(dummy_place, models.storage.all().values())
+        # self.assertIn(dummy_place, models.storage.all().values())
         self.assertIn("City." + dummy_city.id, models.storage.all().keys())
         self.assertIn(dummy_city, models.storage.all().values())
         self.assertIn("Amenity." + dummy_amenity.id,
@@ -133,7 +131,7 @@ class TestStorageMethods(unittest.TestCase):
             self.assertIn("BaseModel." + dummy_bm.id, save_text)
             self.assertIn("User." + dummy_user.id, save_text)
             self.assertIn("State." + dummy_state.id, save_text)
-            #self.assertIn("Place." + dummy_place.id, save_text)
+            # self.assertIn("Place." + dummy_place.id, save_text)
             self.assertIn("City." + dummy_city.id, save_text)
             self.assertIn("Amenity." + dummy_amenity.id, save_text)
             self.assertIn("Review." + dummy_review.id, save_text)
@@ -159,7 +157,7 @@ class TestStorageMethods(unittest.TestCase):
         self.assertIn("BaseModel." + dummy_bm.id, objects)
         self.assertIn("User." + dummy_user.id, objects)
         self.assertIn("State." + dummy_state.id, objects)
-        #self.assertIn("Place." + dummy_place.id, objects)
+        # self.assertIn("Place." + dummy_place.id, objects)
         self.assertIn("City." + dummy_city.id, objects)
         self.assertIn("Amenity." + dummy_amenity.id, objects)
         self.assertIn("Review." + dummy_review.id, objects)
