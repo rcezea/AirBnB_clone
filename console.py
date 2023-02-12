@@ -156,13 +156,15 @@ class HBNBCommand(cmd.Cmd):
                         # of the object's class with
                         # texts[2] as the key and return the type
                         setattr(obj, texts[2], v_type(texts[3]))
+                        obj.save()
                     else:
                         setattr(obj, texts[2], texts[3])
+                        obj.save()
                 else:
                     print("** no instance found **")
             else:
                 print("** class doesn't exist **")
-        obj.save()
+        storage.save()
 
     def help_update(self):
         msg = ["Updates an instance based on the class name",
