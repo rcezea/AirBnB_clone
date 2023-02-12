@@ -147,17 +147,17 @@ class HBNBCommand(cmd.Cmd):
                 id = ".".join(texts[:2])
                 if id in storage.all():
                     obj = storage.all()[id]
-                    
                     if texts[2] in type(obj).__dict__:
-                        #v_type is type of the attribute that will be updated
+                        # v_type is type of the attribute
+                        # that will be updated
                         v_type = type(obj.__class__.__dict__[texts[2]])
                         print("value type = {}".format(v_type))
-                        #above we look into the dictionary of the object's
-                        #class with texts[2] as the key and return the type
+                        # above we look into the dictionary
+                        # of the object's class with
+                        # texts[2] as the key and return the type
                         setattr(obj, texts[2], v_type(texts[3]))
                     else:
-                    
-                    setattr(obj, texts[2], texts[3])
+                        setattr(obj, texts[2], texts[3])
                 else:
                     print("** no instance found **")
             else:
