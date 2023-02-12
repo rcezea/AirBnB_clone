@@ -32,9 +32,3 @@ class TestPlace(unittest.TestCase):
         self.assertIs(type(self.place.latitude), float)
         self.assertIs(type(self.place.longitude), float)
         self.assertIs(type(self.place.amenity_ids), list)
-'''
-        for attr in self.attr_list:
-            self.assertFalse(bool(getattr(self.place, attr)))
-
-    def test_place_obj_is_a_subclass_of_basemodel(self):
-        self.assertTrue(issubclass(type(self.place), BaseModel))'''
