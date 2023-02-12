@@ -5,14 +5,6 @@ JSON file and deserializes JSON file to instances:
 """
 
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.amenity import Amenity
-from models.state import State
-import re
 
 
 class FileStorage:
@@ -43,6 +35,14 @@ class FileStorage:
 
     # function to deserialize dictionary storage from a JSON file
     def reload(self):
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.amenity import Amenity
+        from models.state import State
+        
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 old_dict = json.load(file)
