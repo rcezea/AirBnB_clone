@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
     do_quit = do_EOF
 
     def help_quit(self):
-        print("Quit command to exit the program")
+        print("Quit command to exit the program\n")
     help_EOF = help_quit
 
     '''Updating command interpreter to have these commands
@@ -163,6 +163,9 @@ class HBNBCommand(cmd.Cmd):
         msg = ["Updates an instance based on the class name",
                 "Usage: update <class name> <id> <attribute> <value>"]
         print("\n".join(msg))
+
+    def emptyline(self):
+        pass
 
 
 if __name__ == '__main__':
