@@ -10,6 +10,7 @@ from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
 from models.state import State
+from shlex import split
 
 
 class HBNBCommand(cmd.Cmd):
@@ -39,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
     create, show, destroy, all, update
     '''
     def do_create(self, line):
-        line = line.split()
+        line = split(line)
         if len(line) > 0:
             line = line[0]
             if line in self.class_list:
@@ -57,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         print("\n".join(msg))
 
     def do_show(self, line):
-        texts = line.split()
+        texts = split(line)
         if len(texts) == 0:
             print("** class name missing **")
             return
@@ -81,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
         print("\n".join(msg))
 
     def do_destroy(self, line):
-        texts = line.split()
+        texts = split(line)
         if len(texts) == 0:
             print("** class name missing **")
             return
@@ -105,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         print("\n".join(msg))
 
     def do_all(self, line):
-        texts = line.split()
+        texts = split(line)
         if texts:
             if texts[0] not in self.class_list:
                 print("** class doesn't exist **")
@@ -122,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         print("\n".join(msg))
 
     def do_update(self, line):
-        texts = line.split()
+        texts = split(line)
         if len(texts) == 0:
             print("** class name missing **")
         elif len(texts) == 1:
