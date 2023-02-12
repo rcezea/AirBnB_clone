@@ -47,7 +47,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def help_create(self):
-        pass
+        msg = ["Create a new instance of a class",
+               "Usage: (hbnb) create BaseModel"]
+        print("\n".join(msg))
 
     def do_show(self, line):
         texts = line.split()
@@ -67,6 +69,11 @@ class HBNBCommand(cmd.Cmd):
                         print("** no instance found **")
             else:
                 print("** class doesn't exist **")
+
+    def help_show(self):
+        msg = ["Prints string representation of an instance",
+                "Usage: (hbnh) show BaseModel 1234-1234-1234"]
+        print("\n".join(msg))
 
     def do_destroy(self, line):
         texts = line.split()
@@ -88,7 +95,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def help_destroy(self):
-        print("Destroys an instance")
+        msg = ["Deletes an instance based on the class name and id",
+               "Usage: (hbnb) destroy BaseModel 1234-1234-1234"]
+        print("\n".join(msg))
 
     def do_all(self, line):
         texts = line.split()
@@ -100,6 +109,12 @@ class HBNBCommand(cmd.Cmd):
                        if texts[0] in str(key)])
         else:
             print([str(key) for key in storage.all().values()])
+
+    def help_all(self):
+        msg = ["Prints all string representation of all instances",
+                "Usage: (hbnb) all BaseModel",
+                "Usage: (hbnb) all"]
+        print("\n".join(msg))
 
     def do_update(self, line):
         texts = line.split()
@@ -143,6 +158,11 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
         storage.save()
+
+    def help_update(self):
+        msg = ["Updates an instance based on the class name",
+                "Usage: update <class name> <id> <attribute> <value>"]
+        print("\n".join(msg))
 
 
 if __name__ == '__main__':
