@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
             else:
                 print("** class doesn't exist **")
-        storage.save()
+        obj.save()
 
     def help_update(self):
         msg = ["Updates an instance based on the class name",
