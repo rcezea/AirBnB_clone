@@ -52,5 +52,4 @@ class FileStorage:
 
         else:
             for key, val in old_dict.items():
-                cls_name = re.findall(r"^\w+", key)
-                self.__objects[key] = eval(cls_name[0])(**val)
+                self.__objects[key] = eval(val["__class__"])(**val)
