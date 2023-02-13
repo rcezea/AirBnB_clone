@@ -42,7 +42,7 @@ class FileStorage:
         from models.review import Review
         from models.amenity import Amenity
         from models.state import State
-        
+
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 old_dict = json.load(file)
