@@ -50,10 +50,7 @@ class FileStorage:
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 old_dict = json.load(file)
-
+                for key in old_dict.values():
+                    self.new(eval(key["__class__"])(**key))
         except Exception:
             return
-
-        else:
-            for key in old_dict.values():
-                self.new(eval(key["__class__"])(**key))
