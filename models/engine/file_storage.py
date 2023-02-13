@@ -52,7 +52,7 @@ class FileStorage:
                 old_dict = json.load(file)
 
         except Exception:
-            pass
+            return
 
         else:
             for key in old_dict.values():
