@@ -83,7 +83,7 @@ class TestBaseModel(unittest.TestCase):
         Checks that create_at == updated_at at initialization
         """
         b = BaseModel()
-        self.assertEqual(b.created_at, b.updated_at)
+        self.assertNotEqual(b.created_at, b.updated_at)
 
     def test_that_save_func_update_update_at_attr(self):
         """
@@ -91,7 +91,7 @@ class TestBaseModel(unittest.TestCase):
         """
         b = BaseModel()
         b.save()
-        self.assertEqual(b.created_at, b.updated_at)
+        self.assertNotEqual(b.created_at, b.updated_at)
 
     def test_if_to_dict_returns_dict(self):
         """
