@@ -55,6 +55,5 @@ class FileStorage:
             pass
 
         else:
-            for key, val in old_dict.items():
-                cls_name = re.findall(r"^\w+", key)
-                self.__objects[key] = eval(cls_name[0])(**val)
+            for key in old_dict.values():
+                self.new(eval(key["__class__"])(**key))
