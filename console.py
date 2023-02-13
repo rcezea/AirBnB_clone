@@ -78,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_show(self):
         msg = ["Prints string representation of an instance",
-                "Usage: (hbnh) show BaseModel 1234-1234-1234"]
+               "Usage: (hbnh) show BaseModel 1234-1234-1234"]
         print("\n".join(msg))
 
     def do_destroy(self, line):
@@ -118,9 +118,9 @@ class HBNBCommand(cmd.Cmd):
 
     def help_all(self):
         msg = ["Prints all string representation of all instances",
-                "Usage: (hbnb) all BaseModel",
-                "Usage: (hbnb) all"]
-        print("\n".join(msg))
+               "Usage: (hbnb) all BaseModel",
+               "Usage: (hbnb) all"]
+        print("n".join(msg))
 
     def do_update(self, line):
         texts = split(line)
@@ -169,7 +169,7 @@ class HBNBCommand(cmd.Cmd):
 
     def help_update(self):
         msg = ["Updates an instance based on the class name",
-                "Usage: update <class name> <id> <attribute> <value>"]
+               "Usage: update <class name> <id> <attribute> <value>"]
         print("\n".join(msg))
 
     def emptyline(self):
