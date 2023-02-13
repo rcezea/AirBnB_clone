@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
             return
         elif len(texts) >= 1:
             if texts[0] in self.class_list:
-                if texts == 1:
+                if len(texts) == 1:
                     print("** instance id missing **")
                 else:
                     id = ".".join(texts[:2])
@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             return
         elif len(texts) >= 1:
             if texts[0] in self.class_list:
-                if texts == 1:
+                if len(texts) == 1:
                     print("** instance id missing **")
                 else:
                     id = ".".join(texts[:2])
@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
             if texts[0] not in self.class_list:
                 print("** class doesn't exist **")
             else:
-                print([(key) for key in storage.all().values()
+                print([key for key in storage.all().values()
                        if texts[0] in str(key)])
         else:
             print([str(key) for key in storage.all().values()])
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** attribute name missing **")
         elif len(texts) == 3:
-            print("** value is missing **")
+            print("** value missing **")
         elif len(texts) >= 4:
             if len(texts) > 4:
                 for i in texts:
