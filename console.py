@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
             if texts[0] not in self.class_list:
                 print("** class doesn't exist **")
             else:
-                print([key for key in storage.all().values()
+                print([str(key) for key in storage.all().values()
                        if texts[0] in str(key)])
         else:
             print([str(key) for key in storage.all().values()])
