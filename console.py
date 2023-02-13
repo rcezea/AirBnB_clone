@@ -107,14 +107,15 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         texts = split(line)
+        all = storage.all()
         if texts:
             if texts[0] not in self.class_list:
                 print("** class doesn't exist **")
             else:
-                print([str(key) for key in storage.all().values()
+                print([str(key) for key in all.values()
                        if texts[0] in str(key)])
         else:
-            print([str(key) for key in storage.all().values()])
+            print([str(key) for key in all.values()])
 
     def help_all(self):
         msg = ["Prints all string representation of all instances",
